@@ -3,3 +3,6 @@ export default function Root() {
   root.id = 'root';
   document.body.append(root);
 }
+
+//Common Js导出魔快
+//module.exports = Root;
