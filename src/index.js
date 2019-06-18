@@ -7,6 +7,8 @@ import {
   Avatar
 } from './avatar';
 
+import './index.scss';
+
 //Common Js规范引入模块
 //const Root = require('.root');
 //const Header = require('.header');
@@ -17,4 +19,5 @@ new Root();
 new Header();
 new Content();
 new Footer();
-new Avatar();
+new Avatar('头像啊', true);
+new Avatar('你说啥');
