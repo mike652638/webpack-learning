@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   //mode: 'development',
@@ -16,7 +17,7 @@ module.exports = {
           options: {
             name: 'img_[name].[ext]',
             outputPath: 'imgs/',
-            publicPath: 'dist/imgs/',
+            //publicPath: 'dist/imgs/',
             limit: 10240
           }
         }
@@ -28,7 +29,7 @@ module.exports = {
           options: {
             name: 'font_[name].[ext]',
             outputPath: 'fonts/',
-            publicPath: 'dist/fonts/'
+            //publicPath: 'dist/fonts/'
           }
         }
       },
@@ -42,11 +43,13 @@ module.exports = {
           loader: 'css-loader',
           options: {
             importLoaders: 2, // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader,
-            modules: true
+            modules: true //css模块化, style.avatar => .h88dhu8y8huyg78ghhguh, 避免耦合
           }
         }, 'postcss-loader', 'sass-loader']
       }
     ]
   },
-  plugins: []
+  plugins: [new HtmlWebpackPlugin({
+    template: './src/index.html'
+  })]
 }

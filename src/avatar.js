@@ -1,7 +1,7 @@
 import avatar from './assets/images/avatar.jpg';
 import style from './index.scss';
 
-function Avatar(title1, hasClassAvatar) {
+function Avatar(title1, hasClassAvatarStyle) {
   let img = new Image();
   //let img = document.createElement('img');
   let rootEle = document.getElementById('root');
@@ -10,10 +10,11 @@ function Avatar(title1, hasClassAvatar) {
   /* if (hasClassAvatar) {
     img.className = 'avatar';
   } */
-  if (hasClassAvatar) {
-    img.classList.add(style.avatar);
+
+  if (hasClassAvatarStyle) {
+    img.classList.add(style.avatarStyle);
   } else {
-    img.classList.add('avatar');
+    img.classList.add('avatarStyle');
   }
 
   //img.classList.add(style.avatar);
