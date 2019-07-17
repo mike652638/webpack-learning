@@ -17,8 +17,9 @@ module.exports = {
     main: './src/index.js'
   },
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, './dist')
+    filename: '[name].js',
+    path: path.join(__dirname, './dist'),
+    //publicPath: 'http://www.cdn.com'
   },
   module: {
     //Webpack loaders对模块进行预处理,
