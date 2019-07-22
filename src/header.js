@@ -4,6 +4,7 @@ function Header() {
   header.id = 'header';
   header.innerText = 'This is Header';
   rootEle.append(header);
+  //console.log('abc');
 }
 
 export default Header;

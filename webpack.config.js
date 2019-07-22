@@ -13,8 +13,11 @@ const CleanWebpackPlugin = _CleanWebpackPlugin.CleanWebpackPlugin;
 
 module.exports = {
   //mode: 'development',
+  devtool: 'cheap-module-eval-source-map', //devtool包含SourceMap(打包压缩后的代码与原模块化代码的印射关系, 比如在Header.js模块中console.log('abc'), 对控制台输出的'abc'进行溯源, 若关闭或没有SourceMap, 则只能溯源至打包压缩后的main.js文件, 若开启了SourceMap, 则可以直接找到原代码模块Header.js中的对应行, 便于开发过程中的Debug;)
+  //devtool: 'cheap-module-source-map', //建议用于mode: production
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
+    //dev: './src/index.js',
   },
   output: {
     filename: '[name].js',
