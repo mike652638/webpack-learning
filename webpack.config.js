@@ -24,6 +24,10 @@ module.exports = {
     path: path.join(__dirname, './dist'),
     //publicPath: 'http://www.cdn.com'
   },
+  devServer: {
+    contentBase: './dist', //devServer服务器(localhost:8080)对应的文件夹目录
+    open: true,  //运行webpack-dev-server后自动打开浏览器并访问devServer运行的localhost端口
+  },
   module: {
     //Webpack loaders对模块进行预处理,
     //比如对于scss样式文件, 通过sass- loader进行编译成为css文件, 再通过postcss- loader对某些CSS3样式添加浏览器厂商前缀, 再经过css-loader对模块化css文件进行解析引入, 最终通过style-loader将解析后的css注入到head->style标签内
