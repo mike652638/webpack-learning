@@ -6,6 +6,7 @@ import Footer from './footer';
 import {
   Avatar
 } from './avatar';
+import AppendIcons from './icon';
 
 //Common Js规范引入模块
 //const Root = require('.root');
@@ -17,4 +18,6 @@ new Root();
 new Header();
 new Content();
 new Footer();
-new Avatar();
+new Avatar('头像啊');
+new Avatar('你说啥', true);
+new AppendIcons();
