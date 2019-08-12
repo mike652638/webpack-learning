@@ -22,11 +22,15 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.join(__dirname, './dist'),
-    //publicPath: 'http://www.cdn.com'
+    publicPath: '/'
   },
   devServer: {
     contentBase: './dist', //devServer服务器(localhost:8080)对应的文件夹目录
-    open: true,  //运行webpack-dev-server后自动打开浏览器并访问devServer运行的localhost端口
+    open: true, //运行webpack-dev-server后自动打开浏览器并访问devServer运行的localhost端口
+    port: 8888, //默认端口8080, 可在此处更改
+    proxy: {
+      '/api': 'http://localhost:3000' //代理服务, 访问api转发到localhost:3000端口, 可以解决跨域问题
+    }
   },
   module: {
     //Webpack loaders对模块进行预处理,
