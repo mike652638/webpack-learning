@@ -10,7 +10,6 @@ const _CleanWebpackPlugin = require('clean-webpack-plugin');
 const CleanWebpackPlugin = _CleanWebpackPlugin.CleanWebpackPlugin;
 //参考: https://stackoverflow.com/questions/41058569/what-is-the-difference-between-const-and-const-in-javascript */
 
-
 module.exports = {
   //mode: 'development',
   devtool: 'cheap-module-eval-source-map', //devtool包含SourceMap(打包压缩后的代码与原模块化代码的印射关系, 比如在Header.js模块中console.log('abc'), 对控制台输出的'abc'进行溯源, 若关闭或没有SourceMap, 则只能溯源至打包压缩后的main.js文件, 若开启了SourceMap, 则可以直接找到原代码模块Header.js中的对应行, 便于开发过程中的Debug;)
@@ -28,6 +27,8 @@ module.exports = {
     contentBase: './dist', //devServer服务器(localhost:8080)对应的文件夹目录
     open: true, //运行webpack-dev-server后自动打开浏览器并访问devServer运行的localhost端口
     port: 8888, //默认端口8080, 可在此处更改
+    hot: true, //HMR(HotModuleReplacement),热加载(局部改变, 局部刷新变更, 而不用全局刷新)
+    hotOnly: true, //即使HMR不生效, 浏览器也不自动刷新
     proxy: {
       '/api': 'http://localhost:3000' //代理服务, 访问api转发到localhost:3000端口, 可以解决跨域问题
     }
@@ -77,6 +78,8 @@ module.exports = {
   //webpack plugins类似Vue中的生命周期钩子函数, 在特定的时刻执行某个操作, 
   //例如下方html- webpack - plugin就是在打包过程完成后, 以指定或默认的template为模板, 生成一个HTML文件, 并将打包的文件注入到生成的HTML中;
   plugins: [new HtmlWebpackPlugin({
-    template: './src/index.html'
-  }), new CleanWebpackPlugin()]
+      template: './src/index.html'
+    }), new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
 }

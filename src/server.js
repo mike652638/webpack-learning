@@ -1,8 +1,8 @@
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleWare = require('webpack-dev-middleware');
-const config = require('./webpack.config');
-const compiler = webpack(config); //在node中使用webpack, 相当于webpack({config: config});
+const config = require('../webpack.config');
+const compiler = webpack(config); //在node中使用webpack
 
 const app = express();
 app.use(webpackDevMiddleWare(compiler, {

@@ -7,7 +7,7 @@ import {
   Avatar
 } from './avatar';
 import AppendIcons from './icon';
-
+import './index.scss';
 //Common Js规范引入模块
 //const Root = require('.root');
 //const Header = require('.header');

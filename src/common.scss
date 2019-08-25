@@ -1,0 +1,25 @@
+//全局样式, 不进行模块化解耦(不转为hash)
+body {
+  padding: 20px;
+  font-size: 16px;
+}
+
+#content {
+  display: block;
+  width: 200px;
+  height: 100px;
+  background-color: #666;
+  border: 1px solid #000;
+  text-align: center;
+  color: #fff;
+  padding: 20px 0; 
+  cursor: pointer;
+}
+
+.item {
+  font-weight: bold;
+  &:nth-of-type(odd) {
+    color: red;
+    background-color: yellow;
+  }
+}
