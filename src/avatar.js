@@ -22,7 +22,7 @@ function Avatar(title1, hasClassAvatarStyle) {
   img.src = avatar;
   img.title = title1;
   //img.style = 'width: 200px; height: auto; box-shadow: 2px 2px 2px #ccc';
-  rootEle.append(img);
+  rootEle.appendChild(img);
 }
 
 export {

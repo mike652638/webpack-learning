@@ -13,10 +13,10 @@ function Content() {
     item.innerText = "我是新增的行";
     content.after(item);
   }
-  rootEle.append(content);
+  rootEle.appendChild(content);
 }
 
 export default Content;
 
-//Common Js导出魔快
+//Common Js导出模块
 //module.exports = Content;

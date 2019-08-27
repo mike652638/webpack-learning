@@ -1,4 +1,6 @@
 //Es6 Moduleuo引入模块
+import '@babel/polyfill';
+
 import Root from './root';
 import Header from './header';
 import Content from './content';

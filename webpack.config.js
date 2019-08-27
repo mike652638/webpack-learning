@@ -21,7 +21,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.join(__dirname, './dist'),
-    publicPath: '/'
+    //publicPath: '/'
   },
   devServer: {
     contentBase: './dist', //devServer服务器(localhost:8080)对应的文件夹目录
@@ -72,6 +72,32 @@ module.exports = {
             modules: true //css模块化, style.avatar => .h88dhu8y8huyg78ghhguh, 避免耦合
           }
         }, 'postcss-loader', 'sass-loader']
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          presets: [
+            ['@babel/preset-env', {
+              "targets": "> 0.25%, not dead", //参考https://babeljs.io/docs/en/babel-preset-env#targets
+              useBuiltIns: 'usage' //应用此配置, 则在引入babel-polyfill进行ES6 API=>ES5的兼容转换时, 仅转换使用到的ES6 API, 可以大幅减少转换后的js体积, 参考https://www.jianshu.com/p/4822852792d1, https://www.jianshu.com/p/3b27dfc6785c
+            }]
+          ],
+          //下方plugins与上面presets配置二选一, 前者作用于全局, 后者作用于局部(/闭包)沙箱(避免全局污染, 适用于插件/库开发), 参考https://babeljs.io/docs/en/babel-plugin-transform-runtime, 另外babel配置信息(即options里面的内容)可以放入根目录下.babelrc文件中
+          /* "plugins": [
+            [
+              "@babel/plugin-transform-runtime",
+              {
+                "absoluteRuntime": false,
+                "corejs": false,
+                "helpers": true,
+                "regenerator": true,
+                "useESModules": false
+              }
+            ]
+          ] */
+        },
       }
     ]
   },

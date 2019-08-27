@@ -3,7 +3,7 @@ function Footer() {
   let rootEle = document.getElementById('root');
   footer.id = 'footer';
   footer.innerText = 'This is Footer ... !!!';
-  rootEle.append(footer);
+  rootEle.appendChild(footer);
 }
 
 export default Footer;

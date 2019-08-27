@@ -15,5 +15,5 @@ export default function AppendIcons() {
   <span class="${style.iconfont} ${style['icon-shouji']}"></span>
   <span class="${style.iconfont} ${style['icon-hanbao']}"></span>
   `;
-  rootEle.append(iconEle);
+  rootEle.appendChild(iconEle);
 }
